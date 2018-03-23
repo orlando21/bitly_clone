@@ -13,12 +13,14 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(url_params)
     @url.save
+    flash.notice = "Url '#{@url.short_url}' created!"
     redirect_to urls_path(@urls)
   end
 
   def destroy
     @url = Url.destroy(params[:id])
     redirect_to urls_path(@urls)
+    flash.notice = "Url '#{@url.short_url}' deleted!"
   end
 
 end
