@@ -9,6 +9,7 @@
     <p>
       <b>Short Url</b><br />
       <%= link_to url.short_url, url_path(url) %></p>
+      <%= link_to "Delete Url", url_path(url), method: :delete %>
   </li>
   <% end %>
 </ul>
