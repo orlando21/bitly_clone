@@ -6,11 +6,12 @@
   <% @urls.each do |url| %>
   <li>
     <p>
-      <b>Long Url</b><br />
+      <b>URL</b><br />
       <%= url.long_url %></p>
     <p>
-      <b>Short Url</b><br />
+      Generated URL:<br />
       <%= link_to url.short_url, url_path(url) %></p>
+      Number of times clicked: <%= url.click_count %><br />
       <%= link_to "Delete Url", url_path(url), method: :delete %>
   </li>
   <% end %>
