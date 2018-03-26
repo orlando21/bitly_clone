@@ -13,8 +13,7 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(url_params)
     @url.save
-    flash.notice = "Url '#{@url.short_url}' created!"
-    redirect_to urls_path(@urls)
+    redirect_to urls_path
   end
 
   def destroy
