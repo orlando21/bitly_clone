@@ -1,7 +1,7 @@
 class Url < ActiveRecord::Base
 
   before_create :default_values
-  before_save :generate_url, on: :create
+  before_create :generate_url
 
 
   private

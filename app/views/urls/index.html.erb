@@ -6,12 +6,11 @@
   <% @urls.each do |url| %>
   <li>
     <p>
-      <b>URL</b><br />
-      <%= url.long_url %></p>
+      <b><%= url.long_url %></b>
+    </p>
     <p>
-      Generated URL:<br />
-      <%= link_to url.short_url, url_path(url) %></p>
-      Number of times clicked: <%= url.click_count %><br />
+      <a href="<%= url.short_url %>" target="_blank"> https://urlshortner.com/<%= url.short_url %> </a><br />
+      <i>Click count: <%= url.click_count %></i><br />
       <%= link_to "Delete Url", url_path(url), method: :delete %>
   </li>
   <% end %>

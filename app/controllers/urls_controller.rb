@@ -12,18 +12,25 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
-    @url.save
-    redirect_to urls_path
+    if @url.save
+      redirect_to urls_path
+    else
+      render 'new'
+    end
   end
 
   def show
-    @url = Url.find(params[:id])
-#    @url.increment!(:click_count)
-    @url.click_count += 1
-    @url.save
-    url_for(@url.long_url)
-#    redirect_to urls_path, :notice => "Count is currently #{count}"
-    redirect_to @url.long_url
+  end
+
+  def short_url_route
+    @url = Url.find_by_short_url params[:short_url]
+
+    if @url.nil?
+      redirect_to urls_path
+    else
+      @url.increment!(:click_count)
+      redirect_to @url.long_url
+    end
   end
 
   def destroy
