@@ -9,7 +9,7 @@
       <b><%= url.long_url %></b>
     </p>
     <p>
-      <a href="<%= url.short_url %>" target="_blank"> https://urlshortner.com/<%= url.short_url %> </a><br />
+      <a href="<%= url.short_url %>" target="_blank"> t.url/<%= url.short_url %> </a><br />
       <i>Click count: <%= url.click_count %></i><br />
       <%= link_to "Delete Url", url_path(url), method: :delete %>
   </li>

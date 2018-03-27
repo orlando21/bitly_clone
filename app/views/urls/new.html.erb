@@ -9,7 +9,7 @@
 </ul>
 
 <p>
-  Enter a long Url:<br />
+  Enter a URL:<br />
   <%= f.text_field :long_url %>
 </p>
 
@@ -17,3 +17,5 @@
   <%= f.submit %>
 </p>
 <% end %>
+
+<%= link_to "Back to index", urls_path, class: "urls" %>
