@@ -14,6 +14,7 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.new(url_params)
+    @url.user_id = current_user.id
     if @url.save
       redirect_to urls_path
     else
