@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180328074306) do
+ActiveRecord::Schema.define(version: 20180329082905) do
 
   create_table "urls", force: true do |t|
     t.integer  "click_count"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20180328074306) do
     t.string   "short_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "urls", ["user_id"], name: "index_urls_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username",         null: false

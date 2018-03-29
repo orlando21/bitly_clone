@@ -6,6 +6,8 @@ class Url < ActiveRecord::Base
 #    message: "only allows correct URLs using, e.g., http:// or https://" }
 
 # 'http_url: true' below calls the class of same name (in same directory)
+  belongs_to :user
+
   validates :long_url, http_url: true
   before_create :default_values
   before_create :generate_url

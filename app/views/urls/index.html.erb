@@ -1,19 +1,23 @@
-<h3>Welcome to URL Shortner</h3>
+<h3>Welcome to Shortly</h3>
+<p>A URL Shortner</p>
 <p></p>
 
-<h4>Your URLs</h4>
-<ul id="urls">
-  <% @urls.each do |url| %>
-  <li>
-    <p>
-      <b><%= url.long_url %></b>
-    </p>
-    <p>
-      <a href="<%= url.short_url %>" target="_blank"> t.url/<%= url.short_url %> </a><br />
-      <i>Click count: <%= url.click_count %></i><br />
-      <%= link_to "Delete Url", url_path(url), method: :delete %>
-  </li>
-  <% end %>
-</ul>
+<% if logged_in? %>
+  <h4>Your URLs</h4>
+  <ul id="urls">
+    <% @urls.each do |url| %>
+      <li>
+        <p>
+          <b><%= url.long_url %></b>
+        </p>
+        <p>
+          <a href="<%= url.short_url %>" target="_blank"> short.ly/<%= url.short_url %> </a><br />
+          <i>Click count: <%= url.click_count %></i><br />
+        <%= link_to "Delete Url", url_path(url), method: :delete %>
+      </li>
+    <% end %>
+  </ul>
 
-<%= link_to "Shorten a link", new_url_path, class: "new_url" %>
+  <%= link_to "Shorten a link", new_url_path, class: "new_url" %>
+
+<% end %>

@@ -3,7 +3,9 @@ class UrlsController < ApplicationController
   include UrlsHelper
 
   def index
-    @urls = Url.all
+    if logged_in?
+      @urls = Url.where(:user_id => current_user.id)
+    end
   end
 
   def new
