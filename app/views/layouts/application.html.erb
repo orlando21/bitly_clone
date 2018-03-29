@@ -18,8 +18,10 @@
           <%= "Logged in as #{current_user.username}" %>
           <%= link_to "(log out)", logout_path, method: "delete" %>
         <% else %>
-          <%= link_to "Log in", login_path, method: "get" %><span> to shorten a URL</span><br />
-          <%= link_to "Register", register_path, method: "get" %><span> to create an account</span>
+          <% if !current_page?('/register') %>
+            <%= link_to "Log in", login_path, method: "get" %><span> to shorten a URL</span><br />
+            <%= link_to "Register", register_path, method: "get" %><span> to create an account</span>
+          <% end %>
         <% end %>
       </h4>
     </div>
