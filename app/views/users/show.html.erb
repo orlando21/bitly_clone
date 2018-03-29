@@ -10,5 +10,26 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Links:</strong>
+  <% if ! @urls.empty? %>
+  <ul id="urls">
+    <% @urls.each do |url| %>
+      <li>
+        <p>
+          <b><%= url.long_url %></b>
+        </p>
+        <p>
+          <a href="<%= url.short_url %>" target="_blank"> short.ly/<%= url.short_url %> </a><br />
+          <i>Click count: <%= url.click_count %></i><br />
+        </p>
+      </li>
+      <% end %>
+  </ul>
+  <% else %>
+    <p>Currently there are no links!</p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
