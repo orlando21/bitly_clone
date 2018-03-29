@@ -22,6 +22,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+  # GET /users/admin
+  def admin
+    if current_user.admin
+      redirect_back_or_to users_path
+    else
+      redirect_back_or_to login_path
+    end
+
+  end
+
   # POST /users
   # POST /users.json
   def create
